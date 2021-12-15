@@ -1,53 +1,73 @@
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import RuneTopicLogo from '../../assets/svgs/logo';
 import { Link } from 'react-router-dom';
-import { Home } from '@material-ui/icons';
 
-const useStyles = makeStyles((theme) => ({
+import image from '../../assets/imgs/icon.png';
+
+const headerStyles = makeStyles((theme) => ({
 	root: {
-		flexGrow: 1,
-	},
-	appBar: {
-		borderBottom: '1px solid white'
-	},
-	menuButton: {
-		marginRight: theme.spacing(2),
+		display: 'flex',
+		padding: theme.spacing(2),
+		lineHeight: '1',
+		background: '#2d333b',
+		zIndex: 40,
+		color: 'white',
+		alignItems: 'center'
 	},
 	logo: {
-		flexGrow: 1,
+		paddingRight: theme.spacing(2)
+	},
+	menuItems: {
+		display: 'flex',
+		justifyContent: 'column',
+		alignItems: 'center',
+		
+	},
+	search: {
+		background: '#1c2128',
+		border: '1px solid #444c56',
+		borderRadius: 6,
+		minHeight: 28,
+		padding: theme.spacing(.5),
+		paddingLeft: theme.spacing(1),
+		minWidth: 250
+	},
+	links: {
+		paddingLeft: theme.spacing(2)
 	},
 	link: {
-		color: 'white',
+		color: '#cdd9e5',
+		fontWeight: 600,
 		textDecoration: 'none',
+		paddingLeft: theme.spacing(1),
+		paddingRight: theme.spacing(1)
 	}
 }));
 
-const Header = () => {
-	const classes = useStyles();
+
+export const Header = () => {
+	const styles = headerStyles();
 
 	return (
-		<div className={classes.root}>
-			<AppBar position="static" className={classes.appBar}>
-				<Toolbar>
-					<div className={classes.logo}>
-						<Link to="/home" className={classes.link}>
-							<IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-								<RuneTopicLogo />
-							</IconButton>
-						</Link>
-					</div>
-					<Link to="/projects" className={classes.link}><Button color="inherit">Projects</Button></Link>
-					<Link to="/topics" className={classes.link}><Button color="inherit">Topics</Button></Link>
-					<Link to="/login" className={classes.link}><Button color="inherit">Login</Button></Link>
-				</Toolbar>
-			</AppBar>
-		</div>
-	);
-};
+		<header className={styles.root}>
+			<div className={styles.logo}>
+				<Link to="/">
+					<img src={image} alt="Runetopic logo" />
+				</Link>
+			</div>
+			<div className={styles.menuItems}>
+				<input
+					className={ styles.search }
+					placeholder="Search or jump to..."
+					type="search"
+				/>
+				<div className={ styles.links }>
+					<Link className={ styles.link } to="/recent-topics/">Recent Topics</Link>
+					<Link className={ styles.link } to="/tools/">Tools</Link>
+					<Link className={ styles.link } to="/explore/">Explore</Link>
+				</div>
+			</div>
+		</header>
+	)
+}
 
 export default Header;

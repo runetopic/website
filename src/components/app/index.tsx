@@ -1,29 +1,20 @@
-import { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import Header from '../header';
 import HomePage from '../home';
-import ProjectsPage from '../project';
+import CreateTopic from '../topic/CreateTopic';
 
-import styles from './app.module.scss';
+import './app.module.scss'
 
 function Application() {
-	useEffect(() => {
-		document.body.style.backgroundColor = 'white';
-		document.body.style.margin = "auto"
-	}, []);
-
 	return (
-		<div className={ styles.container }>
+		<>
 			<Header />
-			<div className={ styles.content }>
 			<Switch>
-				<Route path='/home' component={ HomePage } />
-				<Route path='/topics' render={ () => <div>Coming soon!</div> } />
-				<Route path='/projects' component={ ProjectsPage } />
-				<Route exact path="/" render={() => <Redirect to="/home" /> } />
+				<Route exact path='/' component={ HomePage } />
+				<Route exact path='/topic/new' component={ CreateTopic } />
+				<Route exact path="/" render={() => <Redirect to="/" /> } />
 			</Switch>
-			</div>
-		</div>
+		</>
 	);
 }
 
