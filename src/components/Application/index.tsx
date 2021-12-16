@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { StyledEngineProvider, ThemeProvider } from '@mui/material';
-import { Redirect, Route, Switch } from 'react-router';
+import {
+    Route, Switch, useHistory,
+} from 'react-router';
 import theme from '../../theme';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
@@ -9,9 +11,14 @@ import CreateTopic from '../Topic/CreateTopic';
 import Login from '../Login';
 
 import './app.module.scss';
+import Register from '../Register';
+import Copyright from '../Shared/UI/Copyright';
 
 export default () => {
-    const [isAuthenticated] = useState(false);
+    const history = useHistory();
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [isAuthenticated, setAuthenticated] = useState(false);
 
     const authenticatedRoutes = (
         <Switch>
@@ -23,8 +30,15 @@ export default () => {
     const unAuthenticatedRoutes = (
         <Switch>
             <Route exact path="/login" component={ Login } />
+            <Route exact path="/register" component={ Register } />
         </Switch>
     );
+
+    if (isAuthenticated) {
+        history.push('/');
+    } else {
+        history.push('/login');
+    }
 
     return (
         <StyledEngineProvider injectFirst>
@@ -32,7 +46,7 @@ export default () => {
                 { isAuthenticated && <Header /> }
                 { isAuthenticated && authenticatedRoutes }
                 { unAuthenticatedRoutes }
-                { !isAuthenticated && <Route path="/" render={ () => <Redirect to="/login" /> } /> }
+                <Copyright />
             </ThemeProvider>
         </StyledEngineProvider>
     );
