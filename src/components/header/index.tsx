@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link } from 'react-router-dom';
 
 import image from '../../assets/imgs/icon.png';

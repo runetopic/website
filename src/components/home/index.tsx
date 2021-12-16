@@ -1,5 +1,5 @@
-import { Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link } from 'react-router-dom';
 
 const homePageStyles = makeStyles((theme) => ({
