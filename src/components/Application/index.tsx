@@ -6,6 +6,7 @@ import Dashboard from '../Dashboard';
 import CreateTopic from '../Topic/CreateTopic';
 
 import './app.module.scss'
+import Login from "../Login";
 
 export default function Application() {
 	return (
@@ -14,6 +15,7 @@ export default function Application() {
 				<Header />
 				<Switch>
 					<Route exact path='/' component={ Dashboard } />
+					<Route exact path='/login' component={ Login } />
 					<Route exact path='/topic/new' component={ CreateTopic } />
 					<Route exact path="/" render={() => <Redirect to="/" /> } />
 				</Switch>
