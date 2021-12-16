@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import theme from "../../theme";
+import theme from "../../../theme";
 
 const StyledInput = styled.input`
     background: #1c2128;

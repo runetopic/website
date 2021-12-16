@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import image from '../../assets/imgs/icon.png';
 import StyledHeader from "./StyledHeader";
 import StyledLogo from "./StyledLogo";
-import SearchInput from "../UI/SearchInput";
+import SearchInput from "../Shared/Form/SearchInput";
 import { Navigation, NavigationLinks, NavigationLink } from "./Navigation";
 
 export const Header = () => {
