@@ -6,7 +6,9 @@ declare module '@mui/styles/defaultTheme' {
 }
 
 const theme = createTheme({
-	
+	palette: {
+		mode: 'dark',
+	}
 });
 
 export default theme;

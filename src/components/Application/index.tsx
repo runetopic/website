@@ -1,9 +1,9 @@
 import {  StyledEngineProvider, ThemeProvider } from '@mui/material';
 import { Redirect, Route, Switch } from 'react-router';
 import theme from '../../theme';
-import Header from '../header';
-import HomePage from '../home';
-import CreateTopic from '../topic/CreateTopic';
+import Header from '../Header';
+import HomePage from '../Dashboard';
+import CreateTopic from '../Topic/CreateTopic';
 
 import './app.module.scss'
 

@@ -1,6 +1,7 @@
 import { Button } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import { Link } from 'react-router-dom';
+import Sidebar from "./Sidebar";
 
 const homePageStyles = makeStyles((theme) => ({
 	root: {
@@ -65,40 +66,18 @@ const homePageStyles = makeStyles((theme) => ({
 	}
 }));
 
-
 const HomePage = () => {
 	const styles = homePageStyles();
 
-	const sideBar = (
-		<aside className={styles.sidePanel}>
-			<details className={styles.details}>
-				<summary>
-					<img
-						src="https://avatars.githubusercontent.com/u/11916106?s=40&amp;v=4"
-						alt="@tyler27"
-						height="20"
-						width="20"
-						data-view-component="true"
-						className={styles.profileImg} />
-					<span className={styles.username}>tyler27</span>
-				</summary>
-				<div className={styles.menu}>
-					<div className={styles.menuItem}>My first topic...please don't hate me</div>
-					<div className={styles.menuItem}>Runetopic cache providers</div>
-				</div>
-			</details>
-		</aside>
-	);
-
 	return (
 		<div className={styles.root}>
-			{ sideBar }
+			<Sidebar />
 
 			<div className={styles.content}>
 				<div className={styles.heading}>
 					<h2>Featured Topics</h2>
 					<Link to="/topic/new" style={ { textDecoration: 'none' }}>
-						<Button className={styles.addNewButton} variant="contained">New</Button>
+						<Button color="primary" variant="contained">New</Button>
 					</Link>
 				</div>
 
