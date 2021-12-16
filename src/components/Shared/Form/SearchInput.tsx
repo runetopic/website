@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import theme from "../../../theme";
+import styled from '@emotion/styled';
+import theme from '../../../theme';
 
 const StyledInput = styled.input`
     background: #1c2128;
@@ -10,10 +10,10 @@ const StyledInput = styled.input`
     min-width: 250px;
 `;
 
-export const SearchInput = () => {
+const SearchInput = () => {
     return (
-        <StyledInput type="search" placeholder="Search or jump to..."/>
-    )
+        <StyledInput type="search" placeholder="Search or jump to..." />
+    );
 };
 
 export default SearchInput;

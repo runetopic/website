@@ -1,21 +1,21 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import image from '../../assets/imgs/icon.png';
-import StyledHeader from "./StyledHeader";
-import StyledLogo from "./StyledLogo";
-import SearchInput from "../Shared/Form/SearchInput";
-import {Navigation, NavigationLinks, NavigationLink} from "./Navigation";
+import StyledHeader from './StyledHeader';
+import StyledLogo from './StyledLogo';
+import SearchInput from '../Shared/Form/SearchInput';
+import { Navigation, NavigationLinks, NavigationLink } from './Navigation';
 
-export const Header = () => {
+const Header = () => {
     return (
         <StyledHeader>
             <StyledLogo>
                 <Link to="/">
-                    <img src={image} alt="Runetopic logo"/>
+                    <img src={image} alt="Runetopic logo" />
                 </Link>
             </StyledLogo>
             <Navigation>
-                <SearchInput/>
+                <SearchInput />
                 <NavigationLinks>
                     <NavigationLink to="tools">Tools</NavigationLink>
                     <NavigationLink to="recent-topics">Recent Topics</NavigationLink>
@@ -23,7 +23,7 @@ export const Header = () => {
                 </NavigationLinks>
             </Navigation>
         </StyledHeader>
-    )
-}
+    );
+};
 
 export default Header;

@@ -1,5 +1,5 @@
-import {styled} from "@mui/system";
-import theme from "../../../theme";
+import { styled } from '@mui/material';
+import theme from '../../../theme';
 
 const StyledAside = styled('aside')({
     minWidth: 250,

@@ -1,20 +1,18 @@
-import Sidebar from "./Sidebar";
-import Page from "../Shared/UI/Page";
-import PageContent from "../Shared/UI/PageContent";
-import FeaturedTopics from "../Topic/FeaturedTopics";
+import Sidebar from './Sidebar';
+import Page from '../Shared/UI/Page';
+import PageContent from '../Shared/UI/PageContent';
+import FeaturedTopics from '../Topic/FeaturedTopics';
 
 const Dashboard = () => {
     return (
         <Page>
-            <Sidebar/>
+            <Sidebar />
 
             <PageContent width="60%">
-                <FeaturedTopics/>
+                <FeaturedTopics />
             </PageContent>
         </Page>
     );
 };
 
 export default Dashboard;
-
-

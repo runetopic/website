@@ -1,8 +1,8 @@
-import {Link} from "react-router-dom";
-import {Button} from "@mui/material";
-import Divider from "../Shared/UI/Divider";
-import theme from "../../theme";
-import styled from "@emotion/styled";
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import styled from '@emotion/styled';
+import Divider from '../Shared/UI/Divider';
+import theme from '../../theme';
 
 const FeaturedTopicCard = styled('div')({
     backgroundColor: '#22272e',
@@ -18,14 +18,14 @@ const FeaturedTopicCard = styled('div')({
 const Header = styled('div')({
     display: 'flex',
     justifyContent: 'space-between',
-})
+});
 
 const FeaturedTopics = () => {
     return (
         <>
             <Header>
                 <h2>Featured Topics</h2>
-                <Link to="/topic/new" style={{textDecoration: 'none'}}>
+                <Link to="/topic/new" style={{ textDecoration: 'none' }}>
                     <Button color="primary" variant="contained">New</Button>
                 </Link>
             </Header>
@@ -35,16 +35,16 @@ const FeaturedTopics = () => {
                 <p>Breadth first search pathfinding implementation.</p>
             </FeaturedTopicCard>
 
-            <Divider/>
+            <Divider />
 
             <FeaturedTopicCard>
                 <h3>BFS Pathfinding</h3>
                 <p>Breadth first search pathfinding implementation.</p>
             </FeaturedTopicCard>
 
-            <Divider/>
+            <Divider />
         </>
-    )
+    );
 };
 
 export default FeaturedTopics;

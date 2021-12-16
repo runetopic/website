@@ -1,7 +1,7 @@
-import {styled} from "@mui/system";
+import { styled } from '@mui/material';
 
 const StyledSummary = styled('summary')({
-    display: 'flex'
+    display: 'flex',
 });
 
 export default StyledSummary;

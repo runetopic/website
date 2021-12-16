@@ -1,9 +1,9 @@
-import StyledAside from "./StyledAside";
-import StyledDetails from "./StyledDetails";
-import StyledProfileImage from "./StyledProfileImage";
-import StyledSummary from "./StyledSummary";
+import StyledAside from './StyledAside';
+import StyledDetails from './StyledDetails';
+import StyledProfileImage from './StyledProfileImage';
+import StyledSummary from './StyledSummary';
 
-export const Sidebar = () => {
+const Sidebar = () => {
     return (
         <StyledAside>
             <StyledDetails>
@@ -20,6 +20,6 @@ export const Sidebar = () => {
             </StyledDetails>
         </StyledAside>
     );
-}
+};
 
 export default Sidebar;

@@ -1,4 +1,4 @@
-import {createTheme, Theme} from '@mui/material';
+import { createTheme, Theme } from '@mui/material';
 
 declare module '@mui/styles/defaultTheme' {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -9,7 +9,7 @@ declare module '@mui/styles/defaultTheme' {
 const theme = createTheme({
     palette: {
         mode: 'dark',
-    }
+    },
 });
 
 export default theme;
