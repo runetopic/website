@@ -4,15 +4,15 @@ import PageContent from "../Shared/UI/PageContent";
 import FeaturedTopics from "../Topic/FeaturedTopics";
 
 const Dashboard = () => {
-	return (
-		<Page>
-			<Sidebar />
+    return (
+        <Page>
+            <Sidebar/>
 
-			<PageContent>
-				<FeaturedTopics/>
-			</PageContent>
-		</Page>
-	);
+            <PageContent width="60%">
+                <FeaturedTopics/>
+            </PageContent>
+        </Page>
+    );
 };
 
 export default Dashboard;

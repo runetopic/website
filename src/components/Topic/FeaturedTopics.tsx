@@ -25,7 +25,7 @@ const FeaturedTopics = () => {
         <>
             <Header>
                 <h2>Featured Topics</h2>
-                <Link to="/topic/new" style={ { textDecoration: 'none' }}>
+                <Link to="/topic/new" style={{textDecoration: 'none'}}>
                     <Button color="primary" variant="contained">New</Button>
                 </Link>
             </Header>
@@ -35,14 +35,14 @@ const FeaturedTopics = () => {
                 <p>Breadth first search pathfinding implementation.</p>
             </FeaturedTopicCard>
 
-            <Divider />
+            <Divider/>
 
             <FeaturedTopicCard>
                 <h3>BFS Pathfinding</h3>
                 <p>Breadth first search pathfinding implementation.</p>
             </FeaturedTopicCard>
 
-            <Divider />
+            <Divider/>
         </>
     )
 };

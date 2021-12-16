@@ -3,7 +3,6 @@ import theme from "../../../theme";
 
 export const PageContent = styled('div')({
     padding: theme.spacing(2),
-    width: '66%'
-});
+}, (props: any) => ({width: props.width}));
 
 export default PageContent;

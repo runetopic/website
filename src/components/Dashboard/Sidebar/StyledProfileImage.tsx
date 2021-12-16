@@ -1,4 +1,4 @@
-import { styled } from "@mui/styles";
+import {styled} from "@mui/styles";
 import theme from "../../../theme";
 
 const StyledProfileImage = styled('img')({

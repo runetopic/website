@@ -12,7 +12,7 @@ const StyledInput = styled.input`
 
 export const SearchInput = () => {
     return (
-        <StyledInput type="search" placeholder="Search or jump to..." />
+        <StyledInput type="search" placeholder="Search or jump to..."/>
     )
 };
 

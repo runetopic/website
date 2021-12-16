@@ -1,4 +1,4 @@
-import { styled } from "@mui/system";
+import {styled} from "@mui/system";
 import theme from "../../../theme";
 
 const StyledAside = styled('aside')({
