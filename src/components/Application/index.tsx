@@ -15,24 +15,24 @@ export default () => {
 
     const authenticatedRoutes = (
         <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/topic/new" component={CreateTopic} />
+            <Route exact path="/" component={ Dashboard } />
+            <Route exact path="/topic/new" component={ CreateTopic } />
         </Switch>
     );
 
     const unAuthenticatedRoutes = (
         <Switch>
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" component={ Login } />
         </Switch>
     );
 
     return (
         <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={theme}>
-                {isAuthenticated && <Header />}
-                {isAuthenticated && authenticatedRoutes}
-                {unAuthenticatedRoutes}
-                {!isAuthenticated && <Route path="/" render={() => <Redirect to="/login" />} />}
+            <ThemeProvider theme={ theme }>
+                { isAuthenticated && <Header /> }
+                { isAuthenticated && authenticatedRoutes }
+                { unAuthenticatedRoutes }
+                { !isAuthenticated && <Route path="/" render={ () => <Redirect to="/login" /> } /> }
             </ThemeProvider>
         </StyledEngineProvider>
     );

@@ -11,7 +11,7 @@ const Header = () => {
         <StyledHeader>
             <StyledLogo>
                 <Link to="/">
-                    <img src={image} alt="Runetopic logo" />
+                    <img src={ image } alt="Runetopic logo" />
                 </Link>
             </StyledLogo>
             <Navigation>

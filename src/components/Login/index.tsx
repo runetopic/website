@@ -44,19 +44,19 @@ const Login = () => {
                 Login to runetopic
             </Header>
             <PageContent>
-                <Box sx={{
+                <Box sx={ {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     background: '#2d333b',
                     padding: theme.spacing(2),
                     marginBottom: theme.spacing(2),
-                }}
+                } }
                 >
-                    <FormControl sx={{ marginBottom: theme.spacing(2), borderRadius: 6 }}>
+                    <FormControl sx={ { marginBottom: theme.spacing(2), borderRadius: 6 } }>
                         <StyledInput type="email" placeholder="Email" />
                     </FormControl>
-                    <FormControl sx={{ marginBottom: theme.spacing(2) }}>
+                    <FormControl sx={ { marginBottom: theme.spacing(2) } }>
                         <StyledInput type="password" placeholder="Password" />
                     </FormControl>
                     <FormControl fullWidth>

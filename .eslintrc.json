@@ -18,6 +18,12 @@
     "react/jsx-indent-props": ["error", 4],
     "@typescript-eslint/indent": ["error", 4],
     "arrow-body-style": 0,
+    "react/jsx-curly-spacing": ["error", {
+      "when": "always",
+      "children": {
+        "when": "always"
+      }
+    }],
     "react/function-component-definition": [
       2,
       {

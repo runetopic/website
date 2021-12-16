@@ -17,13 +17,13 @@ const CreateTopic = () => {
     const styles = homePageStyles();
 
     return (
-        <div className={styles.root}>
-            <div className={styles.heading}>
+        <div className={ styles.root }>
+            <div className={ styles.heading }>
                 <h1>Create new topic</h1>
                 <p>
                     A topic should contain useful information that others can easily read and digest.
                 </p>
-                <div className={styles.divider} />
+                <div className={ styles.divider } />
             </div>
         </div>
     );
