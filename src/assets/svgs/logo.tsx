@@ -1,5 +1,3 @@
-import React from 'react';
-
 const RuneTopicLogo = () => {
     return (
         <svg width="150" height="30" xmlns="http://www.w3.org/2000/svg">
