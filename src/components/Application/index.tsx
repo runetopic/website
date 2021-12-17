@@ -29,14 +29,14 @@ export default () => {
 
     const unAuthenticatedRoutes = (
         <Switch>
-            <Route exact path="/login" component={ Login } />
+            <Route exact path="/login" render={ () => <Login setAuthenticated={ setAuthenticated } /> } />
             <Route exact path="/register" component={ Register } />
         </Switch>
     );
 
     if (isAuthenticated) {
         history.push('/');
-    } else {
+    } else if (window.location.pathname.indexOf('register') === -1) {
         history.push('/login');
     }
 

@@ -1,13 +1,34 @@
+import { SyntheticEvent, useState } from 'react';
+import { useHistory } from 'react-router';
 import {
     Box, Button, TextField,
 } from '@mui/material';
-
 import { Link } from 'react-router-dom';
+import authService from '../../service/AuthService';
 
 const Register = () => {
-    const handleSubmit = (event: any) => {
+    const history = useHistory();
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
-        console.log(event.target["username"].value)// eslint-disable-line
+        await authService.registerUser({
+            username,
+            email,
+            password,
+            dateOfBirth: '',
+            // eslint-disable-next-line no-console
+        }).then((response) => {
+            if (response.status === 201) {
+                history.push('/login');
+                alert('Success!');
+            } else {
+                alert('Something went wrong!');
+            }
+        });
     };
 
     return (
@@ -15,6 +36,7 @@ const Register = () => {
             display="flex"
             flexDirection="column"
             alignItems="center"
+            minHeight="100vh"
         >
             <Box
                 marginTop={ 2 }
@@ -42,17 +64,23 @@ const Register = () => {
                     id="username"
                     label="Username"
                     type="text"
+                    onChange={ (e) => setUsername(e.target.value) }
+                    value={ username }
                     sx={ { marginBottom: 2 } }
                 />
                 <TextField
                     id="email"
                     label="Email Address"
+                    onChange={ (e) => setEmail(e.target.value) }
+                    value={ email }
                     type="email"
                     sx={ { marginBottom: 2 } }
                 />
                 <TextField
                     id="password"
                     label="Password"
+                    onChange={ (e) => setPassword(e.target.value) }
+                    value={ password }
                     type="password"
                     sx={ { marginBottom: 2 } }
                 />
@@ -62,6 +90,8 @@ const Register = () => {
                     autoComplete="off"
                     type="password"
                     sx={ { marginBottom: 2 } }
+                    onChange={ (e) => setConfirmPassword(e.target.value) }
+                    value={ confirmPassword }
                 />
                 <Button sx={ { marginBottom: 2 } } type="submit" fullWidth color="success" variant="contained">
                     Create Account
