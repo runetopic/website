@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { AppThunk, RootState } from '../../store/store';
+import type { AppThunk } from '../../store/store';
 import { fetchLogin, LoginRequest } from '../../service/AuthService';
 
 interface LoginState {
@@ -24,8 +24,6 @@ export const loginSlice = createSlice({
 });
 
 export const { toggleAuthenticated, logoutAction } = loginSlice.actions;
-
-export const isAuthenticated = (state: RootState) => state.user.isAuthenticated;
 
 export const loginReducer = loginSlice.reducer;
 

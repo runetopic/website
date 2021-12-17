@@ -28,4 +28,4 @@ export const fetchRegisterUser = async (data: RegisterRequest) => authService.po
     password: data.password,
     email: data.email,
     dateOfBirth: data.dateOfBirth,
-})).then((response) => response);
+}));
