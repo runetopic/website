@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 import { useHistory } from 'react-router';
 import {
-    Box, Button, TextField,
+    Box, Button, Paper, TextField,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import authService from '../../service/AuthService';
@@ -24,9 +24,6 @@ const Register = () => {
         }).then((response) => {
             if (response.status === 201) {
                 history.push('/login');
-                alert('Success!');
-            } else {
-                alert('Something went wrong!');
             }
         });
     };
@@ -46,10 +43,7 @@ const Register = () => {
                 Create a free account below.
             </Box>
             <Box
-                id="register-form"
-                component="form"
-                autoComplete="off"
-                onSubmit={ handleSubmit }
+                component={ Paper }
                 sx={ {
                     display: 'flex',
                     flexDirection: 'column',
@@ -57,51 +51,67 @@ const Register = () => {
                     background: '#2d333b',
                     padding: 2,
                     marginBottom: 2,
-                    borderRadius: 2,
                 } }
             >
-                <TextField
-                    id="username"
-                    label="Username"
-                    type="text"
-                    onChange={ (e) => setUsername(e.target.value) }
-                    value={ username }
-                    sx={ { marginBottom: 2 } }
-                />
-                <TextField
-                    id="email"
-                    label="Email Address"
-                    onChange={ (e) => setEmail(e.target.value) }
-                    value={ email }
-                    type="email"
-                    sx={ { marginBottom: 2 } }
-                />
-                <TextField
-                    id="password"
-                    label="Password"
-                    onChange={ (e) => setPassword(e.target.value) }
-                    value={ password }
-                    type="password"
-                    sx={ { marginBottom: 2 } }
-                />
-                <TextField
-                    id="confirm-password"
-                    label="Confirm Password"
+
+                <Box
+                    id="register-form"
+                    component="form"
                     autoComplete="off"
-                    type="password"
-                    sx={ { marginBottom: 2 } }
-                    onChange={ (e) => setConfirmPassword(e.target.value) }
-                    value={ confirmPassword }
-                />
-                <Button sx={ { marginBottom: 2 } } type="submit" fullWidth color="success" variant="contained">
-                    Create Account
-                </Button>
-                <Button fullWidth color="primary" variant="contained">
-                    Register with discord
-                </Button>
-            </Box>
-            <Box component={ Link } sx={ { color: 'text.primary', textDecoration: 'underline' } } to="/login">
-                Already have an account?
+                    onSubmit={ handleSubmit }
+                    sx={ {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        background: '#2d333b',
+                        padding: 2,
+                        marginBottom: 2,
+                        borderRadius: 2,
+                    } }
+                >
+                    <TextField
+                        id="username"
+                        label="Username"
+                        type="text"
+                        onChange={ (e) => setUsername(e.target.value) }
+                        value={ username }
+                        sx={ { marginBottom: 2 } }
+                    />
+                    <TextField
+                        id="email"
+                        label="Email Address"
+                        onChange={ (e) => setEmail(e.target.value) }
+                        value={ email }
+                        type="email"
+                        sx={ { marginBottom: 2 } }
+                    />
+                    <TextField
+                        id="password"
+                        label="Password"
+                        onChange={ (e) => setPassword(e.target.value) }
+                        value={ password }
+                        type="password"
+                        sx={ { marginBottom: 2 } }
+                    />
+                    <TextField
+                        id="confirm-password"
+                        label="Confirm Password"
+                        autoComplete="off"
+                        type="password"
+                        sx={ { marginBottom: 2 } }
+                        onChange={ (e) => setConfirmPassword(e.target.value) }
+                        value={ confirmPassword }
+                    />
+                    <Button sx={ { marginBottom: 2 } } type="submit" fullWidth color="success" variant="contained">
+                        Create Account
+                    </Button>
+                    <Button fullWidth color="primary" variant="contained">
+                        Register with discord
+                    </Button>
+                </Box>
+                <Box component={ Link } sx={ { color: 'text.primary', textDecoration: 'underline' } } to="/login">
+                    Already have an account?
+                </Box>
             </Box>
         </Box>
     );

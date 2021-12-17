@@ -1,6 +1,6 @@
 import ApiService from './ApiService';
 
-const authService = new ApiService('http://localhost:8081/api');
+const authService = new ApiService('https://api.runetopic.com/api');
 
 interface LoginData {
     username: string;
