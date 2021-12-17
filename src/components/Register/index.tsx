@@ -1,13 +1,10 @@
 import { SyntheticEvent, useState } from 'react';
-import { useHistory } from 'react-router';
 import {
     Box, Button, Paper, TextField,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import authService from '../../service/AuthService';
 
 const Register = () => {
-    const history = useHistory();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,17 +12,6 @@ const Register = () => {
 
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
-        await authService.registerUser({
-            username,
-            email,
-            password,
-            dateOfBirth: '',
-            // eslint-disable-next-line no-console
-        }).then((response) => {
-            if (response.status === 201) {
-                history.push('/login');
-            }
-        });
     };
 
     return (

@@ -2,31 +2,30 @@ import ApiService from './ApiService';
 
 const authService = new ApiService('https://api.runetopic.com/api');
 
-interface LoginData {
+export interface LoginRequest {
     username: string;
     password: string;
 }
 
-interface RegisterData {
+export interface LoginResponse {
+    token: string;
+}
+
+export interface RegisterRequest {
     username: string;
     email: string;
     password: string;
     dateOfBirth: string;
 }
 
-const login = (data: LoginData) => authService.postRequest('/login', JSON.stringify({
+export const fetchLogin = (data: LoginRequest) => authService.postRequest('/login', JSON.stringify({
     username: data.username,
     password: data.password,
-})).then((response) => response.json());
+}));
 
-const registerUser = (data: RegisterData) => authService.postRequest('/register', JSON.stringify({
+export const fetchRegisterUser = async (data: RegisterRequest) => authService.postRequest('/register', JSON.stringify({
     username: data.username,
     password: data.password,
     email: data.email,
     dateOfBirth: data.dateOfBirth,
 })).then((response) => response);
-
-export default {
-    login,
-    registerUser,
-};

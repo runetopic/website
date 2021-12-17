@@ -1,28 +1,20 @@
 import { SyntheticEvent, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
     Box, Button, Paper, TextField,
 } from '@mui/material';
-import { useHistory } from 'react-router';
-import authService from '../../service/AuthService';
+import { authenticateRequest } from './loginSlice';
+import { useAppDispatch } from '../../hooks/hooks';
 
-const Login = ({ setAuthenticated }: any) => {
-    const history = useHistory();
-
+const Login = () => {
+    const dispatch = useAppDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
 
-        authService.login({ username, password }).then((result) => {
-            if (result && result.token) {
-                window.localStorage.setItem('accessToken', result.token);
-                setAuthenticated(true);
-                history.push('/');
-            }
-        });
+        dispatch(authenticateRequest({ username, password }));
     };
 
     return (
@@ -88,10 +80,6 @@ const Login = ({ setAuthenticated }: any) => {
             </Box>
         </Box>
     );
-};
-
-Login.propTypes = {
-    setAuthenticated: PropTypes.func.isRequired,
 };
 
 export default Login;

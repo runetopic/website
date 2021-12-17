@@ -51,7 +51,8 @@ module.exports = {
                 "code": 120
             }
         ],
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "no-param-reassign": "off"
     },
     parserOptions: {
         project: `${__dirname}/tsconfig.json`
