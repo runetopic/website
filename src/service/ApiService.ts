@@ -28,15 +28,19 @@ class ApiService {
     private static mapHeaders(headerOptions = {}): Record<string, any> {
         const token = window.localStorage.getItem('accessToken');
         const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
+        headers.set('Content-Type', 'application/json');
 
         if (token) {
-            headers.append('Authorization', `Bearer: ${token}`);
+            headers.set('Authorization', `Bearer ${token}`);
         }
 
         if (Object.keys(headerOptions).length > 0) {
             const headerOptionsArray = Object.entries(headerOptions);
-            headerOptionsArray.forEach((key, value) => headers.append(`${key}`, `${value}`));
+
+            // eslint-disable-next-line no-restricted-syntax
+            for (const [key, value] of headerOptionsArray) {
+                headers.set(`${key}`, `${value}`);
+            }
         }
         return headers;
     }
