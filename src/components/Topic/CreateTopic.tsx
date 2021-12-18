@@ -3,27 +3,28 @@ import {
 } from '@mui/material';
 import { SyntheticEvent, useState } from 'react';
 import MDEditor from '@uiw/react-md-editor';
+import { useNavigate } from 'react-router-dom';
 import { Divider } from '../Shared';
 import theme from '../../theme';
 import { postTopicRequest } from '../../service/TopicService';
 
 const CreateTopic = () => {
+    const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [isPrivateTopic, setPrivateTopic] = useState(false);
     const [markdown, setMarkDown] = useState('### My Topic!');
 
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
 
-        console.log('Submitting topic: ');//eslint-disable-line
-
         postTopicRequest({
             title,
             description,
             markdown,
-            private: false,
-        }).then((r) => {
-            console.log(r);// eslint-disable-line
+            private: isPrivateTopic,
+        }).then(async (response) => response.json()).then((topic: any) => {
+            navigate(`/topic/view/${topic.id}`);
         });
     };
 
@@ -63,9 +64,13 @@ const CreateTopic = () => {
                 />
 
                 <FormControlLabel
-                    control={
-                        <Checkbox checked={ false } name="private" />
-                    }
+                    control={ (
+                        <Checkbox
+                            checked={ isPrivateTopic }
+                            name="private"
+                            onChange={ (e) => setPrivateTopic(e.target.checked) }
+                        />
+                    ) }
                     label="Private topic? (All topics are public by default)"
                 />
 
@@ -96,7 +101,12 @@ const CreateTopic = () => {
                 </Box>
                 <Divider />
                 <Box sx={ { display: 'flex', justifyContent: 'flex-end' } }>
-                    <Button color="error" variant="contained" sx={ { marginRight: 2 } }>
+                    <Button
+                        color="error"
+                        variant="contained"
+                        sx={ { marginRight: 2 } }
+                        onClick={ () => navigate(-1) }
+                    >
                         Cancel
                     </Button>
                     <Button type="submit" color="primary" variant="contained">

@@ -105,9 +105,6 @@ const Register = () => {
                     <Button sx={ { marginBottom: 2 } } type="submit" fullWidth color="success" variant="contained">
                         Create Account
                     </Button>
-                    <Button fullWidth color="primary" variant="contained">
-                        Register with discord
-                    </Button>
                 </Box>
                 <Box component={ Link } sx={ { color: 'text.primary', textDecoration: 'underline' } } to="/login">
                     Already have an account?

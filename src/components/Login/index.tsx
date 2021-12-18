@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
     Box, Button, Paper, TextField,
 } from '@mui/material';
@@ -7,14 +7,15 @@ import { authenticateRequest } from './loginSlice';
 import { useAppDispatch } from '../../hooks/hooks';
 
 const Login = () => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e: SyntheticEvent) => {
+    const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
-
-        dispatch(authenticateRequest({ username, password }));
+        await dispatch(authenticateRequest({ username, password }));
+        navigate('/');
     };
 
     return (
