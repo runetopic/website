@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useHistory } from 'react-router';
 import type { AppThunk } from '../../store/store';
 import { fetchLogin, LoginRequest } from '../../service/AuthService';
 

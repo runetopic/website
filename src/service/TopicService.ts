@@ -1,6 +1,6 @@
 import ApiService from './ApiService';
 
-const apiService = new ApiService('http://localhost:8081/api');
+const apiService = new ApiService('https://api.runetopic.com/api');
 
 export interface TopicRequest {
     title: string;

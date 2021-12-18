@@ -1,13 +1,12 @@
 import { SyntheticEvent, useState } from 'react';
-import { useHistory } from 'react-router';
 import {
     Box, Button, Paper, TextField,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { fetchRegisterUser } from '../../service/AuthService';
 
 const Register = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,7 +22,7 @@ const Register = () => {
             // eslint-disable-next-line no-console
         }).then((response) => {
             if (response.status === 201) {
-                history.push('/login');
+                navigate('/login');
             }
         });
     };
