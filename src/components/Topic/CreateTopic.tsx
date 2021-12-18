@@ -73,7 +73,7 @@ const CreateTopic = () => {
                 <Button color="error" variant="contained" sx={ { marginRight: 2 } }>
                     Cancel
                 </Button>
-                <Button color="success" variant="contained">
+                <Button color="primary" variant="contained">
                     Submit Topic
                 </Button>
             </Box>
