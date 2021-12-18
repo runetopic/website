@@ -1,9 +1,18 @@
-import styled from '@emotion/styled';
+import { Box } from '@mui/material';
 
-const Navigation = styled.div`
-    display: flex;
-    justify-content: column;
-    align-items: baseline;
-`;
+const Navigation = ({ children } : any) => {
+    return (
+        <Box
+            component="div"
+            sx={ {
+                display: 'flex',
+                justifyContent: 'column',
+                alignItems: 'baseline',
+            } }
+        >
+            { children }
+        </Box>
+    );
+};
 
 export default Navigation;

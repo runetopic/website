@@ -4,7 +4,7 @@ import image from '../../assets/imgs/icon.png';
 import StyledHeader from './StyledHeader';
 import StyledLogo from './StyledLogo';
 import SearchInput from '../Shared/Form/SearchInput';
-import { Navigation, NavigationLinks, NavigationLink } from './Navigation';
+import { NavigationLinks, NavigationLink } from './Navigation';
 
 const Header = () => {
     return (
@@ -14,14 +14,12 @@ const Header = () => {
                     <img src={ image } alt="Runetopic logo" />
                 </Link>
             </StyledLogo>
-            <Navigation>
-                <SearchInput />
-                <NavigationLinks>
-                    <NavigationLink to="tools">Tools</NavigationLink>
-                    <NavigationLink to="recent-topics">Recent Topics</NavigationLink>
-                    <NavigationLink to="explore">Explore</NavigationLink>
-                </NavigationLinks>
-            </Navigation>
+            <SearchInput />
+            <NavigationLinks>
+                <NavigationLink to="tools">Tools</NavigationLink>
+                <NavigationLink to="recent-topics">Recent Topics</NavigationLink>
+                <NavigationLink to="explore">Explore</NavigationLink>
+            </NavigationLinks>
         </StyledHeader>
     );
 };
