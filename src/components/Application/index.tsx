@@ -15,7 +15,7 @@ import CreateTopic from '../Topic/CreateTopic';
 import ViewTopic from '../Topic/ViewTopic';
 import RecentTopics from '../Topic/RecentTopics';
 
-export default () => {
+const Application = () => {
     const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated);
 
     return (
@@ -45,7 +45,7 @@ export default () => {
                     element={ <RecentTopics /> }
                 />
                 <Route
-                    path="/topics/view/:id"
+                    path="/topics/view/:uuid"
                     element={ (
                         <ViewTopic />
                     ) }
@@ -55,3 +55,5 @@ export default () => {
         </Router>
     );
 };
+
+export default Application;

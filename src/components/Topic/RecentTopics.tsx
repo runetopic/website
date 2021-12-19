@@ -17,6 +17,8 @@ const RecentTopicCard = styled(Link)({
     paddingBottom: theme.spacing(2),
     paddingLeft: theme.spacing(2),
     marginBottom: theme.spacing(2),
+    textDecoration: 'none',
+    color: theme.palette.text.primary,
     width: '50%',
 });
 
@@ -50,7 +52,7 @@ const Tags = () => {
         >
             { chipData.map((data) => {
                 return (
-                    <ListItem key={ data.key }>
+                    <ListItem key={ data.key } onClick={ (e) => e.preventDefault() }>
                         <Chip
                             label={ data.label }
                         />
@@ -66,11 +68,13 @@ const RecentTopics = () => {
     const [isLoaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        getAllTopicsRequest().then((response) => response.json()).then((data) => {
-            setTopics(data);
-            setLoaded(true);
-        });
-    });
+        if (!isLoaded) {
+            getAllTopicsRequest().then((response) => response.json()).then((data) => {
+                setTopics(data);
+                setLoaded(true);
+            });
+        }
+    }, [isLoaded]);
 
     const recentTopics = topics.map((topic: Topic) => {
         return (
@@ -93,16 +97,18 @@ const RecentTopics = () => {
             } }
         >
             <h1>Recent Topics</h1>
-            <Box sx={ {
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: theme.spacing(2),
-            } }
-            >
-                <h3>Popular tags: </h3>
-                <Tags />
-            </Box>
+            { isLoaded && recentTopics.length > 0 && (
+                <Box sx={ {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    padding: theme.spacing(2),
+                } }
+                >
+                    <h3>Popular tags: </h3>
+                    <Tags />
+                </Box>
+            ) }
             <Box sx={ {
                 display: 'flex',
                 alignItems: 'center',
@@ -112,7 +118,8 @@ const RecentTopics = () => {
             >
                 { !isLoaded && <CircularProgress /> }
                 {
-                    isLoaded && recentTopics.length > 0 && recentTopics
+                    // eslint-disable-next-line no-mixed-operators
+                    isLoaded && recentTopics.length > 0 && recentTopics || <h3>No topics have been created yet :(</h3>
                 }
             </Box>
         </Box>

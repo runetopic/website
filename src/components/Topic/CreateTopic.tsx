@@ -24,7 +24,7 @@ const CreateTopic = () => {
             markdown,
             private: isPrivateTopic,
         }).then(async (response) => response.json()).then((topic: any) => {
-            navigate(`/topic/view/${topic.id}`);
+            navigate(`/topics/view/${topic.id}`);
         });
     };
 
@@ -75,7 +75,6 @@ const CreateTopic = () => {
                 />
 
                 <MDEditor
-                    theme="dark"
                     value={ markdown }
                     style={ {
                         background: '#22272e',
