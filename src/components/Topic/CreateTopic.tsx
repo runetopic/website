@@ -99,7 +99,7 @@ const CreateTopic = () => {
                     />
                 </Box>
                 <Divider />
-                <Box sx={ { display: 'flex', justifyContent: 'flex-end' } }>
+                <Box sx={ { width: 100 } }>
                     <Button
                         color="error"
                         variant="contained"

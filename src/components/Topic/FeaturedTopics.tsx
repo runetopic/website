@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import styled from '@emotion/styled';
 import Divider from '../Shared/UI/Divider';
 import theme from '../../theme';
+import { useAppSelector } from '../../hooks/hooks';
 
 const FeaturedTopicCard = styled('div')({
     backgroundColor: '#22272e',
@@ -21,13 +22,17 @@ const Header = styled('div')({
 });
 
 const FeaturedTopics = () => {
+    const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated);
+
     return (
         <>
             <Header>
                 <h2>Featured Topics</h2>
-                <Link to="/topics/new" style={ { textDecoration: 'none' } }>
-                    <Button color="primary" variant="contained">New</Button>
-                </Link>
+                { isAuthenticated && (
+                    <Link to="/topics/new" style={ { textDecoration: 'none' } }>
+                        <Button color="primary" variant="contained">New</Button>
+                    </Link>
+                ) }
             </Header>
 
             <FeaturedTopicCard>
