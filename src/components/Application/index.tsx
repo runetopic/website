@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import Header from '../Header';
 import './app.module.scss';
 import Copyright from '../Shared/UI/Copyright';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { useAppDispatch } from '../../hooks/hooks';
 import Dashboard from '../Dashboard';
 import Login from '../Login';
 import ProtectedRoute from '../Shared/Util/PrivateRoute';
@@ -16,6 +16,7 @@ import CreateTopic from '../Topic/CreateTopic';
 import ViewTopic from '../Topic/ViewTopic';
 import RecentTopics from '../Topic/RecentTopics';
 import { logoutAction } from '../Login/loginSlice';
+import Tools from '../Tools';
 
 const Logout = () => {
     const navigate = useNavigate();
@@ -30,8 +31,6 @@ const Logout = () => {
 };
 
 const Application = () => {
-    const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated);
-
     return (
         <Router>
             <Header />
@@ -43,16 +42,22 @@ const Application = () => {
                     path="/"
                     element={ <Dashboard /> }
                 />
-                { isAuthenticated && (
-                    <Route
-                        path="/topics/new"
-                        element={ (
-                            <ProtectedRoute>
-                                <CreateTopic />
-                            </ProtectedRoute>
-                        ) }
-                    />
-                ) }
+                <Route
+                    path="/tools"
+                    element={ (
+                        <ProtectedRoute>
+                            <Tools />
+                        </ProtectedRoute>
+                    ) }
+                />
+                <Route
+                    path="/topics/new"
+                    element={ (
+                        <ProtectedRoute>
+                            <CreateTopic />
+                        </ProtectedRoute>
+                    ) }
+                />
                 <Route
                     path="/topics/recent"
                     element={ <RecentTopics /> }

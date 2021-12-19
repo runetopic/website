@@ -1,7 +1,7 @@
 import { Box, Paper } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MDEditor from '@uiw/react-md-editor';
-import { useMatch } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getTopicRequest, TopicRequest } from '../../service/TopicService';
 
 interface Topic extends TopicRequest {
@@ -11,15 +11,31 @@ interface Topic extends TopicRequest {
 // eslint-disable-next-line react/prop-types
 const ViewTopic = () => {
     const [topic, setTopic] = useState({ } as Topic);
-    const { params: { id } }: any = useMatch('/topics/view/:id');
+    const ref = useRef();
+    const params = useParams() as { uuid: string; };
+
+    const scrollToHash = () => {
+        const hash = window.location.hash.substring(1);
+
+        if (hash && hash.length) {
+            const el = document.getElementById(hash);
+            if (el != null) {
+                el.scrollIntoView();
+            }
+        }
+    };
 
     useEffect(() => {
-        getTopicRequest(id).then(async (response) => response.json()).then((data) => setTopic(data));
-    }, [id]);
+        getTopicRequest(params.uuid).then(async (response) => response.json()).then((data) => {
+            setTopic(data);
+            scrollToHash();
+        });
+    }, [params.uuid]);
 
-    if (topic && id) {
+    if (topic && params.uuid) {
         return (
             <Box
+                ref={ ref }
                 component={ Paper }
                 sx={ {
                     minHeight: '100vh',

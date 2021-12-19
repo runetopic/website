@@ -22,7 +22,6 @@ const Header = () => {
             <NavigationLinks>
                 <NavigationLink to="/tools">Tools</NavigationLink>
                 <NavigationLink to="/topics/recent">Recent Topics</NavigationLink>
-                <NavigationLink to="/explore">Explore</NavigationLink>
             </NavigationLinks>
             <NavigationLink to={ isAuthenticated ? '/logout' : '/login' }>
                 { isAuthenticated && <LogoutIcon /> }
