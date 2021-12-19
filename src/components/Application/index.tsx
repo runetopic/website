@@ -13,6 +13,7 @@ import ProtectedRoute from '../Shared/Util/PrivateRoute';
 import Register from '../Register';
 import CreateTopic from '../Topic/CreateTopic';
 import ViewTopic from '../Topic/ViewTopic';
+import RecentTopics from '../Topic/RecentTopics';
 
 export default () => {
     const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated);
@@ -32,7 +33,7 @@ export default () => {
                     ) }
                 />
                 <Route
-                    path="/topic/new"
+                    path="/topics/new"
                     element={ (
                         <ProtectedRoute>
                             <CreateTopic />
@@ -40,11 +41,13 @@ export default () => {
                     ) }
                 />
                 <Route
-                    path="/topic/view/:uuid"
+                    path="/topics/recent"
+                    element={ <RecentTopics /> }
+                />
+                <Route
+                    path="/topics/view/:id"
                     element={ (
-                        <ProtectedRoute>
-                            <ViewTopic />
-                        </ProtectedRoute>
+                        <ViewTopic />
                     ) }
                 />
             </Routes>

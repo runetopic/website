@@ -17,7 +17,7 @@ const Header = () => {
             <SearchInput />
             <NavigationLinks>
                 <NavigationLink to="tools">Tools</NavigationLink>
-                <NavigationLink to="recent-topics">Recent Topics</NavigationLink>
+                <NavigationLink to="topics/recent">Recent Topics</NavigationLink>
                 <NavigationLink to="explore">Explore</NavigationLink>
             </NavigationLinks>
         </StyledHeader>
